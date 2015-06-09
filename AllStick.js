@@ -13,6 +13,7 @@
   By Team Red Eagle.
 */
 RER.newPowerStick(700,"blaze_rod",0,"RER.freezestick","Freeze Stick","FREEZE");
+RER.newPowerStick(701,"blaze_powder",0,"RER.firestick","Fire Stick","FIRE");
 
 var RER = {
     newPowerStick: function(item,texture,texturedata,langName,realName,ability) {
@@ -37,6 +38,11 @@ function attackHook(a,v) {
             if(ability=="FREEZE") {
                 var rnd = Math.floor(Math.random()*(100)+40);
                 RER.freezestick.push({ent:v,time:rnd});
+            } else {
+                if(abilit[i][1]=="FIRE") {
+                    var firernd = Math.floor(Math.random()*(6)+1);
+                    Entity.setFireTicks(v,firernd);
+                }
             }
         }
         }
