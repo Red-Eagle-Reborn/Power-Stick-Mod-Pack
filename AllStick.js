@@ -14,6 +14,7 @@
 */
 RER.newPowerStick(700,"blaze_rod",0,"RER.freezestick","Freeze Stick","FREEZE");
 RER.newPowerStick(701,"blaze_powder",0,"RER.firestick","Fire Stick","FIRE");
+RER.newPowerStick(702,"cauldron",0,"RER.explodestick","Explode Stick","EXPLODE")
 
 var RER = {
     newPowerStick: function(item,texture,texturedata,langName,realName,ability) {
@@ -42,6 +43,11 @@ function attackHook(a,v) {
                 if(ability=="FIRE") {
                     var firernd = Math.floor(Math.random()*(6)+1);
                     Entity.setFireTicks(v,firernd);
+                }
+                if(ability=="EXPLODE") {
+                    var rndexplode = Math.floor(Math.random()*(7)+(1));
+                    explode(Entity.getX(v),Entity.getY(v),Entity.getZ(v),rndexplode);
+                    Entity.setHealth(getPlayerEnt(),Entity.getHealth(getPlayerEnt()));
                 }
             }
         }
