@@ -15,6 +15,7 @@
 RER.newPowerStick(700,"blaze_rod",0,"RER.freezestick","Freeze Stick","FREEZE");
 RER.newPowerStick(701,"blaze_powder",0,"RER.firestick","Fire Stick","FIRE");
 RER.newPowerStick(702,"cauldron",0,"RER.explodestick","Explode Stick","EXPLODE")
+RER.newPowerStick(703,"iron_horse_armor",0,"RER.lifestick","Life Stick","LIFE")
 
 var RER = {
     newPowerStick: function(item,texture,texturedata,langName,realName,ability) {
@@ -48,6 +49,11 @@ function attackHook(a,v) {
                     var rndexplode = Math.floor(Math.random()*(7)+(1));
                     explode(Entity.getX(v),Entity.getY(v),Entity.getZ(v),rndexplode);
                     Entity.setHealth(getPlayerEnt(),Entity.getHealth(getPlayerEnt()));
+                }
+                if(ability=="LIFE") {
+                    if(Entity.getHealth(getPlayerEnt())<20) {
+                        Entity.setHealth(getPlayerEnt(),Entity.getHealth(getPlayerEnt())+1);
+                    }
                 }
             }
         }
