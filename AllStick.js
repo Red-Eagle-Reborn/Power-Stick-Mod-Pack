@@ -88,7 +88,7 @@ function procCmd(cmd) {
     if(c[0]=="powerstick") {
         for(var k in RER.stick) {
         addItemInventory(RER.stick[k][0],1,0);
-        RER.chat("§aGived All PowerStick");
         }
+        RER.chat("§aGived All PowerStick");
     }
 }
