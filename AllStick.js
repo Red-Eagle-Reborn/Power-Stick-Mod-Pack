@@ -32,6 +32,7 @@ RER.newPowerStick(700,"blaze_rod",0,"RER.freezestick","Freeze Stick","FREEZE");
 RER.newPowerStick(701,"blaze_powder",0,"RER.firestick","Fire Stick","FIRE");
 RER.newPowerStick(702,"cauldron",0,"RER.explodestick","Explode Stick","EXPLODE")
 RER.newPowerStick(703,"iron_horse_armor",0,"RER.lifestick","Life Stick","LIFE")
+RER.newPowerStick(704,"diamond_horse_armor",0,"RER.waterstick","Water Stick","WATER")
 
 function attackHook(a,v) {
     if(a==getPlayerEnt()) {
@@ -55,6 +56,9 @@ function attackHook(a,v) {
                     if(Entity.getHealth(getPlayerEnt())<20) {
                         Entity.setHealth(getPlayerEnt(),Entity.getHealth(getPlayerEnt())+1);
                     }
+                }
+                if(ability=="WATER") {
+                  setTile(Entity.getX(v),Entity.getY(v),Entity.getZ(v),8)
                 }
             }
         }
