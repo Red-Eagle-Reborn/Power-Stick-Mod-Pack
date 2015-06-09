@@ -12,7 +12,6 @@
   
   By Team Red Eagle.
 */
-
 RER.newPowerStick(700,"blaze_rod",0,"RER.freezestick","Freeze Stick","FREEZE");
 
 var RER = {
@@ -24,7 +23,7 @@ var RER = {
     },
     stick:[],
     chat:function(str) {
-        clientMessage("§c[RER] "+str);
+        clientMessage("§c[RER] §f"+str);
     },
     freezestick:[]
     
@@ -63,4 +62,14 @@ function modTick() {
 
 function newLevel() {
     RER.chat("§6PowerStick Mod Pack by §c[RER]Team")
+}
+
+function procCmd(cmd) {
+    var c=cmd.split(" ");
+    if(c[0]=="powerstick") {
+        for(var k in RER.stick) {
+        addItemInventory(RER.stick[k][0],1,0);
+        RER.chat("§aGived All PowerStick")l
+        }
+    }
 }
