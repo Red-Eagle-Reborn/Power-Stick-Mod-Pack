@@ -39,7 +39,7 @@ function attackHook(a,v) {
                 var rnd = Math.floor(Math.random()*(100)+40);
                 RER.freezestick.push({ent:v,time:rnd});
             } else {
-                if(abilit[i][1]=="FIRE") {
+                if(ability=="FIRE") {
                     var firernd = Math.floor(Math.random()*(6)+1);
                     Entity.setFireTicks(v,firernd);
                 }
