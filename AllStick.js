@@ -28,11 +28,13 @@ var RER = {
     
 }
 
-RER.newPowerStick(700,"blaze_rod",0,"RER.freezestick","Freeze Stick","FREEZE");
-RER.newPowerStick(701,"blaze_powder",0,"RER.firestick","Fire Stick","FIRE");
-RER.newPowerStick(702,"cauldron",0,"RER.explodestick","Explode Stick","EXPLODE")
-RER.newPowerStick(703,"iron_horse_armor",0,"RER.lifestick","Life Stick","LIFE")
-RER.newPowerStick(704,"diamond_horse_armor",0,"RER.waterstick","Water Stick","WATER")
+RER.newPowerStick(700,"csword_1",0,"RER.freezestick","Freeze Stick","FREEZE");
+RER.newPowerStick(701,"csword_2",0,"RER.firestick","Fire Stick","FIRE");
+RER.newPowerStick(702,"csword_3",0,"RER.explodestick","Explode Stick","EXPLODE")
+RER.newPowerStick(703,"csword_4",0,"RER.lifestick","Life Stick","LIFE")
+RER.newPowerStick(704,"csword_5",0,"RER.waterstick","Water Stick","WATER")
+RER.newPowerStick(705,"csword_6",0,"RER.lavastick","Lava Stick","LAVA")
+RER.newPowerStick(706,"csword_7",0,"RER.poisonstick","Poison Stick","POISON")
 
 function attackHook(a,v) {
     if(a==getPlayerEnt()) {
@@ -59,6 +61,13 @@ function attackHook(a,v) {
                 }
                 if(ability=="WATER") {
                   setTile(Entity.getX(v),Entity.getY(v),Entity.getZ(v),8)
+                }
+                if(ability=="LAVA") {
+                  setTile(Entity.getX(v),Entity.getY(v),Entity.getZ(v),10)
+                }
+                if(ability=="POISON") {
+                  var randtime = Math.floor(Math.random()*(10)+(5))*20;
+                  Entity.addEffect(v,MobEffect.poison,randtime,false,true);
                 }
             }
         }
